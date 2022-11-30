@@ -41,7 +41,7 @@ class animatedProgressWidgetState extends State<animatedProgressWidget> {
                         stops: [value,value],
                         // 0.0 , 0.5 , 0.5 , 1.0
                         center: Alignment.center,
-                        colors: [Colors.blue,Colors.grey.withAlpha(55)]
+                        colors: [Colors.green,Colors.grey.withAlpha(55)]
                     ).createShader(rect);
                   },
                   child: Container(
@@ -65,7 +65,7 @@ class animatedProgressWidgetState extends State<animatedProgressWidget> {
                       margin: EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage("assets/image/radial_scale.png"),
+                          image: AssetImage("assets/image/logo.png"),
                           fit: BoxFit.cover,
                         ),
                       ),

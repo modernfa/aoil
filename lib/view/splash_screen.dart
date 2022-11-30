@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:aoil/util/images.dart';
+import 'package:aoil/view/homePage.dart';
 import 'package:aoil/view/intro_page.dart';
 import 'package:aoil/view/login.dart';
 import 'package:flutter/material.dart';
@@ -47,8 +48,8 @@ class _SplashScreenState extends State<SplashScreen> {
         }
       });
       Timer(
-          Duration(seconds: 2),
-              () => _getData);
+          Duration(seconds: 3),
+              () => _getData());
 
     }catch(Exception){
       setState(() {
@@ -215,7 +216,7 @@ class _SplashScreenState extends State<SplashScreen> {
         PageTransition(
             type: PageTransitionType.fade,
             duration: Duration(milliseconds: 800),
-            child: IntroPage()))
+            child: HomePage(indexset: 1)))
       :Navigator.pushReplacement(
         context,
         PageTransition(

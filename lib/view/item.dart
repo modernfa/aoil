@@ -84,6 +84,7 @@ class item extends StatelessWidget {
                         SizedBox(
                           height: 6,
                         ),
+
                         Text(
                           'سالن اعلام بار',
                           textAlign: TextAlign.center,

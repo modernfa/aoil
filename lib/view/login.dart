@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:aoil/view/homePage.dart';
 import 'package:aoil/view/intro_page.dart';
 import 'package:aoil/view/widget/buttonWidget.dart';
 import 'package:aoil/view/widget/textFieldWidget.dart';
@@ -275,44 +276,23 @@ class _LoginScreenState extends State<LoginScreen> {
     var body = Map<String, dynamic>();
     body["mobile"] = email;
     body["smsToken"] = password;
+    print(body);
     Response response = await post(url, body: body);
     if (response.statusCode == 200) {
       var tokenJson = json.decode(utf8.decode(response.bodyBytes));
       var model = tokenResponseModel(tokenJson["success"], tokenJson["data"]);
       if (model.tokenstatus == true) {
         setData(
-            model.data["token"],
-            model.data["mobile"]);
-        _showToast2(context);
-        print(model.data);
+            model.data["token"]);
 
-        if (model.data["trackId"] == null) {
-          print(model.data["trackId"]);
-          Navigator.of(context).pushReplacement(PageRouteBuilder(
-              transitionDuration: Duration(milliseconds: 300),
-              pageBuilder: (BuildContext context, Animation<double> animation,
-                  Animation<double> secondAnimation) {
-                return IntroPage();
-              },
-              transitionsBuilder: (BuildContext context,
-                  Animation<double> animation,
-                  Animation<double> secondAnimation,
-                  Widget child) {
-                return ScaleTransition(
-                  child: child,
-                  scale: Tween<double>(begin: 0, end: 1).animate(
-                      CurvedAnimation(
-                          parent: animation, curve: Curves.fastOutSlowIn)),
-                );
-              }));
-        } else {
-          Navigator.pushReplacement(
-              context,
-              PageTransition(
-                  type: PageTransitionType.bottomToTop,
-                  duration: Duration(milliseconds: 800),
-                  child: IntroPage()));
-        }
+        _showToast2(context);
+        print("shayan  is ${model.data}");
+        Navigator.pushReplacement(
+            context,
+            PageTransition(
+                type: PageTransitionType.fade,
+                duration: Duration(milliseconds: 800),
+                child: HomePage(indexset: 1,)));
       }
     }
   }
@@ -547,10 +527,9 @@ void _showToast3(BuildContext context) {
   );
 }
 
-setData(String auToken, String mobile) async {
+setData(String auToken) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.setBool('isLogin', true);
   prefs.setString('auToken', auToken);
-  prefs.setString('mobile', mobile);
   print("data is saved");
 }
