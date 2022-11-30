@@ -73,7 +73,7 @@ class item extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                    AssetImage("assets/item_1.png"),
+                                    AssetImage("assets/image/item_1.png"),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -135,7 +135,7 @@ class item extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                    AssetImage("assets/item_3.png"),
+                                    AssetImage("assets/image/item_3.png"),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -197,7 +197,7 @@ class item extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                    AssetImage("assets/item_2.png"),
+                                    AssetImage("assets/image/item_2.png"),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -262,7 +262,7 @@ class item extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                    AssetImage("assets/item_4.png"),
+                                    AssetImage("assets/image/item_4.png"),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -324,7 +324,7 @@ class item extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                    AssetImage("assets/item_5.png"),
+                                    AssetImage("assets/image/item_5.png"),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -386,7 +386,7 @@ class item extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                    AssetImage("assets/item_6.png"),
+                                    AssetImage("assets/image/item_6.png"),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -449,7 +449,7 @@ class item extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image:
-                                    AssetImage("assets/item_7.png"),
+                                    AssetImage("assets/image/item_7.png"),
                                     fit: BoxFit.cover,
                                   ),
                                 ),

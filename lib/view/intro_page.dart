@@ -1,5 +1,8 @@
 import 'package:aoil/util/model/step_model.dart';
+import 'package:aoil/view/login.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroPage extends StatefulWidget {
   @override
@@ -87,6 +90,15 @@ class _IntroPageState extends State<IntroPage> {
                   _controller.animateToPage(initialPage + 1,
                       duration: Duration(microseconds: 500),
                       curve: Curves.easeIn);
+                else if (initialPage == list.length) print(initialPage);
+                print(list.length);
+                setData(true);
+                Navigator.pushReplacement(
+                    context,
+                    PageTransition(
+                        type: PageTransitionType.bottomToTop,
+                        duration: Duration(milliseconds: 800),
+                        child: LoginScreen()));
               },
               child: Container(
                 width: 65,
@@ -125,5 +137,10 @@ class _IntroPageState extends State<IntroPage> {
       "assets/image/$path.png",
       height: MediaQuery.of(context).size.height * .5,
     );
+  }
+
+  setData(bool newuser) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isReadIntro', true);
   }
 }

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         fontFamily: 'iranyekan',
       ),
-      home: HomePage(indexset: 0),
+      home: SplashScreen(),
     );
   }
 }

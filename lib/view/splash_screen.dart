@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:io';
 import 'package:aoil/util/images.dart';
 import 'package:aoil/view/intro_page.dart';
+import 'package:aoil/view/login.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -46,12 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
       });
       Timer(
           Duration(seconds: 2),
-              () => Navigator.pushReplacement(
-              context,
-              PageTransition(
-                  type: PageTransitionType.bottomToTop,
-                  duration: Duration(milliseconds: 800),
-                  child: IntroPage())));
+              () => _getData);
 
     }catch(Exception){
       setState(() {
@@ -208,5 +205,30 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       throw 'Could not launch $url';
     }
+  }
+  _getData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.getBool('isReadIntro') == true
+    ?prefs.getBool('isLogin') == true
+      ?Navigator.pushReplacement(
+        context,
+        PageTransition(
+            type: PageTransitionType.fade,
+            duration: Duration(milliseconds: 800),
+            child: IntroPage()))
+      :Navigator.pushReplacement(
+        context,
+        PageTransition(
+            type: PageTransitionType.fade,
+            duration: Duration(milliseconds: 800),
+            child: LoginScreen()))
+    :Navigator.pushReplacement(
+        context,
+        PageTransition(
+            type: PageTransitionType.bottomToTop,
+            duration: Duration(milliseconds: 800),
+            child: IntroPage()));
+
+
   }
 }
